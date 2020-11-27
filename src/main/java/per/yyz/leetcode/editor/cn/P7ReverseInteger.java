@@ -43,6 +43,20 @@ public class P7ReverseInteger {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int reverse(int x) {
+            long result = 0;
+            do {
+                result = result * 10 + x % 10;
+                x /= 10;
+            }
+            while (x != 0);
+            return (int) result == result ? (int) result : 0;
+        }
+    }
+//leetcode submit region end(Prohibit modification and deletion)
+
+
+    class Solution01 {
+        public int reverse(int x) {
             int result = 0;
             do {
                 if ((Integer.MAX_VALUE - x % 10L) < (result * 10L) || (Integer.MIN_VALUE - x % 10L) > (result * 10L)) {
@@ -52,11 +66,7 @@ public class P7ReverseInteger {
                 x /= 10;
             }
             while (x != 0);
-
-
             return result;
         }
     }
-//leetcode submit region end(Prohibit modification and deletion)
-
 }
