@@ -44,37 +44,36 @@
 
 package per.yyz.leetcode.editor.cn;
 
-import javax.swing.*;
 import java.util.Arrays;
 
 /**
- *Java: 加一
- *Difficulty: easy
- *Date: 2020-12-16 17:39:09
- * 
+ * Java: 加一
+ * Difficulty: easy
+ * Date: 2020-12-16 17:39:09
  */
-public class P66PlusOne{
+public class P66PlusOne {
     public static void main(String[] args) {
         Solution solution = new P66PlusOne().new Solution();
-        System.out.println(Arrays.toString(solution.plusOne(new int[]{9,8,7,6,5,4,3,2,1,0})));
+        System.out.println(Arrays.toString(solution.plusOne(new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1, 0})));
     }
-//leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int[] plusOne(int[] digits) {
-        int index = digits.length -1 ;
-        digits[index] += 1;
-        while (digits[index] == 10 && index >= 0){
-            digits[index] = 0;
-            if(--index < 0){
-                digits = new int[digits.length+1];
-                digits[0] = 1;
-                break;
+
+    //leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public int[] plusOne(int[] digits) {
+            int index = digits.length - 1;
+            digits[index]++;
+            while (digits[index] == 10 && index >= 0) {
+                digits[index] = 0;
+                if (--index < 0) {
+                    digits = new int[digits.length + 1];
+                    digits[0] = 1;
+                    break;
+                }
+                digits[index]++;
             }
-            digits[index] += 1;            
+            return digits;
         }
-        return digits;
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
